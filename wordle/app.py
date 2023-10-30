@@ -1,4 +1,6 @@
-
+from sql_client import SQLClient
+sql_client = SQLClient()
+imeis = sql_client.get_uninstalled_imeis()
 
 secret_word = "potato"
 guess = ""

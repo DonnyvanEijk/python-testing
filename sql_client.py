@@ -12,12 +12,13 @@ class SQLClient:
             user=os.getenv("MYSQL_USER", "mysql"),
             password=os.getenv("MYSQL_PASSWORD", "mysql"),
             database=os.getenv("MYSQL_DATABASE", "api"),
-            port=os.getenv("MYSQL_PORT", "3306"),
-            connection_timeout=os.getenv("MYSQL_CONNECTION_TIMEOUT", "180"),
+            port=int(os.getenv("MYSQL_PORT", "3306")),
+            connection_timeout=int(os.getenv("MYSQL_CONNECTION_TIMEOUT", "180")),
         )
+        print("Connected")
         self.cursor = self.db.cursor(
             buffered=True,
-            dictory=True
+            dictionary=True
         )
 
     def update(self, query: str, params: tuple):
